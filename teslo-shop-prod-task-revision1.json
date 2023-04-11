@@ -1,0 +1,145 @@
+{
+    "taskDefinitionArn": "arn:aws:ecs:us-east-1:594261311179:task-definition/teslo-shop-prod-task:1",
+    "containerDefinitions": [
+        {
+            "name": "teslo-shop-prod",
+            "image": "594261311179.dkr.ecr.us-east-1.amazonaws.com/dolivare5/teslo-shop",
+            "cpu": 0,
+            "portMappings": [
+                {
+                    "name": "teslo-shop-prod-80-tcp",
+                    "containerPort": 80,
+                    "hostPort": 80,
+                    "protocol": "tcp",
+                    "appProtocol": "http"
+                }
+            ],
+            "essential": true,
+            "environment": [
+                {
+                    "name": "DB_USERNAME",
+                    "value": "postgres"
+                },
+                {
+                    "name": "PORT_SERVER",
+                    "value": "80"
+                },
+                {
+                    "name": "DB_PORT",
+                    "value": "5432"
+                },
+                {
+                    "name": "JWT_SECRET",
+                    "value": "Est3EsMISE3Dsecreto32s"
+                },
+                {
+                    "name": "STAGE",
+                    "value": "prod"
+                },
+                {
+                    "name": "DB_NAME",
+                    "value": "teslo_shop_db"
+                },
+                {
+                    "name": "HOST_API",
+                    "value": "http://localhost:80"
+                },
+                {
+                    "name": "APP_VERSION",
+                    "value": "1.0.1"
+                },
+                {
+                    "name": "DB_HOST",
+                    "value": "teslo-shop-db.ckhufutibjol.us-east-1.rds.amazonaws.com"
+                },
+                {
+                    "name": "DB_PASSWORD",
+                    "value": "visasplmlmLmlchAcrlPiPhasep*&ener9c9oFrabe5a8refAxlDlt2icH5miN8P"
+                }
+            ],
+            "environmentFiles": [],
+            "mountPoints": [],
+            "volumesFrom": [],
+            "logConfiguration": {
+                "logDriver": "awslogs",
+                "options": {
+                    "awslogs-create-group": "true",
+                    "awslogs-group": "/ecs/teslo-shop-prod-task",
+                    "awslogs-region": "us-east-1",
+                    "awslogs-stream-prefix": "ecs"
+                }
+            }
+        },
+        {
+            "name": "aws-otel-collector",
+            "image": "public.ecr.aws/aws-observability/aws-otel-collector:v0.27.0",
+            "cpu": 0,
+            "portMappings": [],
+            "essential": true,
+            "command": [
+                "--config=/etc/ecs/ecs-cloudwatch-xray.yaml"
+            ],
+            "environment": [],
+            "mountPoints": [],
+            "volumesFrom": [],
+            "logConfiguration": {
+                "logDriver": "awslogs",
+                "options": {
+                    "awslogs-create-group": "true",
+                    "awslogs-group": "/ecs/ecs-aws-otel-sidecar-collector",
+                    "awslogs-region": "us-east-1",
+                    "awslogs-stream-prefix": "ecs"
+                }
+            }
+        }
+    ],
+    "family": "teslo-shop-prod-task",
+    "executionRoleArn": "arn:aws:iam::594261311179:role/ecsTaskExecutionRole",
+    "networkMode": "awsvpc",
+    "revision": 1,
+    "volumes": [],
+    "status": "ACTIVE",
+    "requiresAttributes": [
+        {
+            "name": "com.amazonaws.ecs.capability.logging-driver.awslogs"
+        },
+        {
+            "name": "ecs.capability.execution-role-awslogs"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.ecr-auth"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.19"
+        },
+        {
+            "name": "ecs.capability.execution-role-ecr-pull"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.18"
+        },
+        {
+            "name": "ecs.capability.task-eni"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.29"
+        }
+    ],
+    "placementConstraints": [],
+    "compatibilities": [
+        "EC2",
+        "FARGATE"
+    ],
+    "requiresCompatibilities": [
+        "FARGATE"
+    ],
+    "cpu": "1024",
+    "memory": "2048",
+    "runtimePlatform": {
+        "cpuArchitecture": "X86_64",
+        "operatingSystemFamily": "LINUX"
+    },
+    "registeredAt": "2023-04-11T22:06:46.012Z",
+    "registeredBy": "arn:aws:iam::594261311179:root",
+    "tags": []
+}

@@ -14,11 +14,8 @@ services:
       - /app/node_modules
     container_name: nest-app
     ports:
-      - ${PORT_SERVER}:${PORT_CONTAINER}
+      - ${PORT_SERVER}:${PORT_SERVER}
     environment:
       APP_VERSION: ${APP_VERSION}
       STAGE: ${STAGE}
       PORT_SERVER: ${PORT_SERVER}
-      PORT_CONTAINER: ${PORT_CONTAINER}
-  
-  
