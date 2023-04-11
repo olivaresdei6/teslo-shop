@@ -6,11 +6,11 @@ on:
 
 env:
   AWS_REGION: us-east-1
-  ECR_REPOSITORY: 594261311179.dkr.ecr.us-east-1.amazonaws.com/dolivare5/teslo-shop
+  ECR_REPOSITORY: dolivare5/teslo-shop
   ECS_SERVICE: teslo-shop-service-prod
   ECS_CLUSTER: teslo-shop-prod
   ECS_TASK_DEFINITION: ./teslo-shop-prod-task-revision1.json
-  CONTAINER_NAME: dolivare5/teslo-shop-app
+  CONTAINER_NAME: dolivare5/teslo-shop
 
 permissions:
   contents: read
