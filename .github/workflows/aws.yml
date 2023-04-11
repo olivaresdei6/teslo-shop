@@ -10,7 +10,7 @@ env:
   ECS_SERVICE: teslo-shop-service-prod
   ECS_CLUSTER: teslo-shop-prod
   ECS_TASK_DEFINITION: teslo-shop-prod-task-revision1.json
-  CONTAINER_NAME: dolivare5/teslo-shop
+  CONTAINER_NAME: teslo-shop-prod
 
 permissions:
   contents: read
